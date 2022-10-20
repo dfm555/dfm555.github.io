@@ -15,20 +15,21 @@
   --font-color-heading: var(--white);
   --font-color-paragraph: var(--grey);
 
-  --font-size-small: calc(var(--font-size-base) * 1.5);
+  --font-size-small: 1.5rem;
+
+  --padding-base: 10px
 
 }
 
-* {
-  box-sizing: border-box;
+html {
+  background-color: var(--background);
+  color: var(--font-color-paragraph);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
 }
 
 body {
-  background-color: var(--background);
-  font-family: var(--font-family);
   font-size: var(--font-size-small);
-  padding: 0;
-  margin: 0;
 }
 
 h1, h2, h3 {
@@ -41,4 +42,45 @@ p {
 
 .NavigationBar {
   background-color: var(--color-primary);
+}
+
+.NavigationBar-brandContainer,
+.NavigationBar-menuContainer {
+  padding-left: var(--padding-base);
+  padding-right: var(--padding-base);
+}
+
+.NavigationBar-brandContainer {
+  border-bottom: 1px solid var(--grey);
+}
+
+.NavigationBar-brand {
+  color: var(--white);
+  display: block;
+  font-size: 1.9rem;
+  font-weight: bold;
+  padding: 1.5rem 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.NavigationBar-brand:hover,
+.NavigationBar-menuList > a:hover {
+  color: var(--color-secondary);
+}
+
+.NavigationBar-menu {
+  padding: 1rem 0;
+}
+
+.NavigationBar-menuList {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 1rem 0;
+}
+
+.NavigationBar-menuList > a {
+  color: var(--white);
+  display: block;
+  text-decoration: none;
 }
