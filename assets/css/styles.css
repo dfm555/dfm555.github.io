@@ -10,7 +10,7 @@
   --background: var(--cinder);
 
   --font-size-base: 10px;
-  --font-family: "Lato","Helvetica Neue", Helvetica,Arial,sans-serif;
+  --font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --font-color-heading: var(--white);
   --font-color-paragraph: var(--grey);
@@ -51,7 +51,21 @@ p {
 }
 
 .NavigationBar-brandContainer {
-  border-bottom: 1px solid var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.1rem solid var(--grey);
+}
+
+.NavigationBar-menuContainer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all .1s cubic-bezier(.4, 0, 1, 1);
+}
+
+.NavigationBar-menuContainer--show {
+  max-height: 15rem;
+  transition: all .6s cubic-bezier(.4, 0, 1, 1);
 }
 
 .NavigationBar-brand {
@@ -67,6 +81,53 @@ p {
 .NavigationBar-brand:hover,
 .NavigationBar-menuList > a:hover {
   color: var(--color-secondary);
+}
+
+.NavigationBar-hamburgerContainer {
+  border: 0.1rem solid var(--color-tertiary);
+  border-radius: 0.4rem;
+  padding: 0.9rem 1rem;
+  width: 4.5rem;
+}
+
+.NavigationBar-hamburgerContainer:hover {
+  background-color: var(--color-tertiary);
+  cursor: pointer;
+}
+
+.NavigationBar-hamburgerContainer--activate {
+  background-color: var(--color-tertiary);
+}
+
+.NavigationBar-hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
+.NavigationBar-hamburgerLine {
+  background-color: var(--white);
+  border-radius: 0.4rem;
+  height: 0.3rem;
+  transition: all 0.2s;
+  transform-origin: left;
+}
+
+.NavigationBar-hamburgerContainer--activate .NavigationBar-hamburger {
+  transform: translateX(0.4rem);
+}
+
+.NavigationBar-hamburgerContainer--activate .NavigationBar-hamburgerLine:first-child {
+  transform: rotate(45deg);
+}
+
+.NavigationBar-hamburgerContainer--activate .NavigationBar-hamburgerLine:nth-child(2) {
+  opacity: 0;
+}
+
+.NavigationBar-hamburgerContainer--activate .NavigationBar-hamburgerLine:last-child {
+  transform: rotate(-45deg);
 }
 
 .NavigationBar-menu {
