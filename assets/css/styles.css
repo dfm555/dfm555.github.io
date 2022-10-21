@@ -11,14 +11,23 @@
 
   --font-size-base: 10px;
   --font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-headings: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --font-color-heading: var(--white);
   --font-color-paragraph: var(--grey);
 
   --font-size-small: 1.5rem;
 
-  --padding-base: 10px
+  --padding-base: 10px;
 
+  --grid-breakpoints-xs: 0;
+  --grid-breakpoints-sm: 576px;
+  --grid-breakpoints-md: 768px;
+  --grid-breakpoints-lg: 992px;
+  --grid-breakpoints-xl: 1200px;
+  --grid-breakpoints-xxl: 1400px;
+
+  --max-width-container: 1170px;
 }
 
 html {
@@ -34,6 +43,7 @@ body {
 
 h1, h2, h3 {
   color: var(--font-color-heading);
+  font-family: var(--font-family-headings);
 }
 
 p {
@@ -42,6 +52,8 @@ p {
 
 .NavigationBar {
   background-color: var(--color-primary);
+  font-family: var(--font-family-headings);
+  font-weight: bold;
 }
 
 .NavigationBar-brandContainer,
@@ -144,4 +156,42 @@ p {
   color: var(--white);
   display: block;
   text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .NavigationBar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+  }
+
+  .NavigationBar-brandContainer {
+    border-bottom: 0;
+  }
+
+  .NavigationBar-brand {
+    font-size: 3rem;
+  }
+
+  .NavigationBar-hamburgerContainer {
+    display: none;
+  }
+
+  .NavigationBar-menuContainer {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .NavigationBar-menu {
+    display: flex;
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .NavigationBar-container {
+    margin: 0 auto;
+    max-width: var(--max-width-container);
+  }
 }
